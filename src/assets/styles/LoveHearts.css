@@ -1,0 +1,46 @@
+:root {
+  --main-color: #ff5678;
+  --secondary-color: #ff304f;
+  --heart-size: 30px;
+}
+
+.heart {
+  position: absolute;
+  width: var(--heart-size);
+  height: var(--heart-size);
+  background: red;
+  transform: rotate(45deg);
+  animation: fall 3s linear infinite;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: var(--heart-size);
+  height: var(--heart-size);
+  background: red;
+  border-radius: 50%;
+}
+
+.heart:before {
+  top: calc(-1 * var(--heart-size) / 2);
+  left: 0;
+}
+
+.heart:after {
+  top: 0;
+  left: calc(-1 * var(--heart-size) / 2);
+}
+
+@keyframes fall {
+  0% {
+    top: -50px;
+    opacity: 1;
+  }
+  100% {
+    top: 90vh;
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+}
